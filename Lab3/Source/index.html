@@ -1,0 +1,221 @@
+<!--
+Author: DesignMaz
+Author URL: https://www.designmaz.net
+License URL: https://www.designmaz.net/licence/
+-->
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Join Us</title>
+<!-- Custom Theme files -->
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>
+	<script src="https://apis.google.com/js/api:client.js"></script>
+<!-- Custom Theme files -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<meta name="keywords" content="Static Login Form Responsive, Login form web template, Sign up Web Templates, Flat Web Templates, Login signup Responsive web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+<!--script-->
+<script src="js/jquery.min.js"></script>
+<script src="js/easyResponsiveTabs.js" type="text/javascript"></script>
+		    <script type="text/javascript">
+			    $(document).ready(function () {
+			        $('#horizontalTab').easyResponsiveTabs({
+			            type: 'default', //Types: default, vertical, accordion           
+			            width: 'auto', //auto or any width like 600px
+			            fit: true   // 100% fit in a container
+			        });
+			    });
+				
+</script>
+
+	<script>
+
+		function direct() {
+			window.location = "mashup.html";
+		}
+		</script>
+	<script>
+		var googleUser = {};
+		var startApp = function () {
+			gapi.load('auth2', function () {
+				// Retrieve the singleton for the GoogleAuth library and set up the client.
+				auth2 = gapi.auth2.init({
+					client_id: '416123897139-73umcr2tnq2iopiua2j1hsqq3gifafju.apps.googleusercontent.com',
+					cookiepolicy: 'single_host_origin',
+					// Request scopes in addition to 'profile' and 'email'
+					//scope: 'additional_scope'
+				});
+				attachSignin(document.getElementById('customBtn'));
+			});
+		};
+
+		function attachSignin(element) {
+			console.log(element.id);
+			auth2.attachClickHandler(element, {},
+					function (googleUser) {
+						document.getElementById('name').innerText = "Signed in: " +
+								googleUser.getBasicProfile().getName();
+					}, function (error) {
+						alert(JSON.stringify(error, undefined, 2));
+					});
+		}
+	</script>
+
+<!--script-->
+
+	<div id="fb-root"></div>
+	<script>
+		function statusChangeCallback(response) {
+			console.log('statusChangeCallback');
+			console.log(response);
+
+			if (response.status === 'connected') {
+
+				window.location='mashup.html'
+			}
+		}
+
+
+		function checkLoginState() {
+			FB.getLoginStatus(function(response) {
+				statusChangeCallback(response);
+			});
+		}
+
+		window.fbAsyncInit = function() {
+			FB.init({
+				appId      : '6781537318656248',
+				cookie     : true,  // enable cookies to allow the server to access
+									// the session
+				xfbml      : true,  // parse social plugins on this page
+				version    : 'v2.5' // use graph api version 2.5
+			});
+
+
+			FB.getLoginStatus(function(response) {
+				statusChangeCallback(response);
+			});
+
+		};
+
+
+		(function(d, s, id) {
+			var js, fjs = d.getElementsByTagName(s)[0];
+			if (d.getElementById(id)) return;
+			js = d.createElement(s); js.id = id;
+			js.src = "//connect.facebook.net/en_US/sdk.js";
+			fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));
+
+		// Here we run a very simple test of the Graph API after login is
+		// successful.  See statusChangeCallback() for when this call is made.
+		function testAPI() {
+			console.log('Welcome!  Fetching your information.... ');
+			FB.api('/me', function(response) {
+				console.log('Successful login for: ' + response.name);
+				document.getElementById('status').innerHTML =
+						'Thanks for logging in, ' + response.name + '!';
+			});
+		}
+	</script>
+<!---Google Analytics Designmaz.net-->
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create', 'UA-35751449-15', 'auto');ga('send', 'pageview');</script>
+</head>
+<body>
+	<div class="head">
+		<div class="logo">
+			<div class="logo-top">
+				<h1>Join Us</h1>
+			</div>
+			<div class="logo-bottom">
+				<section class="sky-form">									
+					<label class="radio"><input type="radio" name="radio" checked=""><i></i>Haven't Signed Up</label>
+					<label class="radio"><input type="radio" name="radio"><i></i>Create an Account</label>
+					<label class="radio"><input type="radio" name="radio"><i></i>Its Free!!</label>
+				</section>
+			</div>
+		</div>		
+		<div class="login">
+			<div class="sap_tabs">
+				<div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
+					<ul class="resp-tabs-list">
+						<li class="resp-tab-item" aria-controls="tab_item-0" role="tab"><span>Login</span></li>
+						<li class="resp-tab-item" aria-controls="tab_item-1" role="tab"><label>/</label><span>Sign up</span></li>
+						<div class="clearfix"></div>
+					</ul>				  	 
+					<div class="resp-tabs-container">
+						<div class="tab-1 resp-tab-content" aria-labelledby="tab_item-0">
+							<div class="login-top">
+								<form>
+									<input type="text" class="email" placeholder="Email" required=""/>
+									<input type="password" class="password" placeholder="Password" required=""/>		
+								</form>
+								<div class="login-bottom login-bottom1">
+									<div class="submit">
+										<input type="submit" onclick="direct()" value="LOGIN"/>
+									</div>
+									<ul>
+										<li><p>Or login with</p></li>
+										<li><a href="#"><span class="fb"scope="public_profile,email" onlogin="checkLoginState();"></span></a></li>
+
+										<li><a href="#"><span class="twit"></span></a></li>
+										<li><a id="customBtn" class="fa fa-google-plus" href="#"><span class="google"></span></a></li>
+
+										<script>startApp();</script>
+									</ul>
+									<div class="clear"></div>
+								</div>	
+							</div>
+						</div>
+						<div class="tab-1 resp-tab-content" aria-labelledby="tab_item-1">
+						<div class="login-top">
+								<form>
+									<input type="text" class="name active" placeholder="Your Name" required=""/>
+									<input type="text" class="email" placeholder="Email" required=""/>
+									<input type="password" class="password" placeholder="Password" required=""/>		
+								</form>
+								<div class="login-bottom">
+									<div class="submit">
+										<input type="submit" value="SIGN UP"/>
+									</div>
+									<ul>
+										<li><p>Or login with</p></li>
+										<li><a href="#"><span class="fb"></span></a></li>
+										<li><a href="#"><span class="twit"></span></a></li>
+										<li><a href="#"><span class="google"></span></a></li>
+									</ul>
+									<div class="clear"></div>
+								</div>	
+							</div>
+							
+						</div>							
+					</div>	
+				</div>
+			</div>	
+		</div>	
+		<div class="clear"></div>
+	</div>	
+	<div class="account">
+			<ul>
+				<li><p>Don't have an <a href="#">account?</a></p></li><span>/</span>
+				<li><p>Forgot <a href="#">password?</a></p></li>
+				<div class="clear"></div>
+			</ul>
+		</div>
+	<div style="text-align:center; margin-top:10px;">
+				<ins class="adsbygoogle"
+style="display:block"
+data-ad-client="ca-pub-8011246932591811"
+data-ad-slot="9844648019"
+data-ad-format="auto"></ins> <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+				</div>
+	<div class="footer">
+
+	</div>
+</body>
+</html>
