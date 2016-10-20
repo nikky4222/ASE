@@ -1,0 +1,40 @@
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js"></script>
+    <script src="app.js"></script>
+    <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="index.css">
+    <title>Bytes Converter</title>
+    <div class="container">
+        <div class= ""style="text-align: center;font-family: Comic Sans MS ;color:white"><h1>Bytes Converter</h1></div>
+    </div>
+
+</head>
+<body ng-app=calculate>
+
+<div class="row">
+    <div class="card">
+<div ng-controller=calculatectrl>
+    <form>
+        <div class="form-group"> <label for="bytes"></label>
+            <input type="number" style="border: 1px #2aabd2" class="form-control"placeholder="Enter the Bytes" id="bytes" ng-model="h">
+        </div>
+        <br><br>
+    </form>
+    <div class="centered">
+        <button class="btn btn-success" style="background-color: #2aabd2" ng-click="bmi()">Calculate</button>
+    </div>
+    <div class="container">
+        <p ng-model=cal>
+            <br><br>
+        <div class="bg-danger" style="background-color: white">Nibble Value:&nbsp&nbsp{{cal.nibble}} <sup></sup></div><br>
+        <div class="bg-success" style="background-color: white">Bits Value:&nbsp&nbsp{{cal.bits}} </div><br>
+        <div class="bg-warning" style="background-color: white">KiloBytes Value:&nbsp&nbsp{{cal.kilo}}</div><br>
+
+        </p>
+    </div>
+    </div>
+</div>
+</div>
+</body>
+</html>
