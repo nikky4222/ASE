@@ -1,0 +1,19 @@
+<ion-view>
+  <ion-content padding="true" style="background: url(img/background.jpg) no-repeat center;background-size:cover;" >
+    <ion-list id="login-list1">
+      <br><br>
+      <label class="item item-input" id="login-input1">
+        <span class="input-label" style="color:blue" >Group Name</span><input type="text" placeholder="" id="groupname" ng-model="data.gr">
+      </label>
+
+      <br><br>
+    </ion-list>
+      <br><br>
+    <ul class="list" ng-repeat="user in users">
+      <li class="item"  >
+     {{user}}
+      </li>
+    </ul>
+    <button class="button button-block button-positive" id="create_group" ng-click="group()">Get Group Members</button>
+  </ion-content>
+</ion-view>

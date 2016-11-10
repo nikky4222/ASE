@@ -1,6 +1,6 @@
 
 <ion-view title="User resgistration" ng-controller="registrationCtrlr">
-  <ion-header-bar class="bar-positive">
+  <ion-header-bar class="bar-calm">
     <h1 class="title">User Registration</h1>
     <button class="button button-icon" ng-click="goToLogin()">Login
       <i class="icon ion-log-in"></i>
@@ -31,6 +31,10 @@
           <label class="item item-input">
             <span class="input-label">Name</span>
             <input id="txt_name" type="text" placeholder="Nick Name" ng-model="data.nick">
+          </label>
+          <label class="item item-input">
+            <span class="input-label">Group Name</span>
+            <input id="txt_gname" type="text" placeholder="Group Name" ng-model="data.gname">
           </label>
         </div>
       </div>

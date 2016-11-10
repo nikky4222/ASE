@@ -22,6 +22,28 @@ angular.module('starter.controllers', [])
 })
 
 
+  .controller('homeCtrlr', function($scope, $stateParams, Chats) {
+  })
+
+
+
+  .controller('groupCtrlr', function($scope,$http) {
+    $scope.gnamename=[];
+    $scope.getusers=function () {
+      $scope.gname=ggname;
+      var name1=$http.get("https://api.mongolab.com/api/1/databases/harry/collections/users?q={\"gname\":\""+$scope.gname+"\"}&apiKey=0xCX7-4KL6dGWvAOR5PLzPaC-DtA0KZ4")
+      name1.success(data);{
+        for(var i=0;i<data.length;i++) {
+          $scope.gnamename[i] = {"name": data[i].id.username}
+        }
+      }
+    }
+
+
+
+  })
+
+
 
 
   .controller('loginCtrl', function($scope, LoginService, DeleteService, UpdateService, $ionicPopup, $state) {
@@ -49,6 +71,8 @@ angular.module('starter.controllers', [])
 
       $scope.goToHome =function()
       {
+
+
         $state.go('register');
       }
 
@@ -97,7 +121,7 @@ angular.module('starter.controllers', [])
 
       $scope.completeRegistration = function(email){
 
-        RegisterService.RegisterUser( $scope.data.username, $scope.data.password,$scope.data.cpassword, $scope.data.mobile,$scope.data.nick).success(function(data) {
+        RegisterService.RegisterUser( $scope.data.username, $scope.data.password,$scope.data.cpassword, $scope.data.mobile,$scope.data.nick,$scope.data.gname).success(function(data) {
           alert("Welcome " +$scope.data.nick  );
           $state.go('login');
         }).error(function(data) {

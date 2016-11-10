@@ -1,10 +1,53 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<ion-header-bar class="bar-calm">
+  <h1 class="title">ShareUp</h1>
+  <!--        <button class="button button-clear button-positive" ng-click="redirectToRegistration()">Register</button>   -->
+</ion-header-bar>
+<ion-view view-title="Dashboard">
+  <ion-content class="padding" ng-controller="homeCtrlr">
+    <div class="list card">
+      <div class="item item-divider bar-positive">Home</div>
+      <div class="item item-body">
 
-</body>
-</html>
+        <div class="list">
+
+          <a class="item item-icon-left" href="./index.html#/tab/exview">
+            <i class="icon ion-card"></i>
+            GroceryList
+
+            <b><span class="item-note" id="texp">
+
+    </span></b>
+          </a>
+
+          <a class="item item-icon-left" href="./index.html#/tab/inview">
+            <i class="icon ion-android-done "></i>
+            Deals
+            <b><span class="item-note" id="tinc">
+
+    </span></b>
+          </a>
+
+          <a class="item item-icon-left" href="#">
+            <i class="icon ion-social-twitch-outline"></i>
+            Forum
+            <b><span class="item-note" id="tbal">
+
+
+
+    </span></b>
+          </a>
+
+          <a class="item item-icon-left" href="./index.html#/tab/addg">
+            <i class="icon ion-cash"></i>
+            Expense Manager
+
+            <span class="badge badge-assertive" id="tgoal"></span>
+          </a>
+
+          <a class="item item-icon-left item-icon-right" href="./index.html#/tab/charts">
+            <i class="icon ion-android-people"></i>
+            Groups
+            <i class="icon ion-arrow-right-c"></i>
+          </a>
+
+        </div>

@@ -63,6 +63,20 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
     })
 
+    .state('group', {
+      url: '/group',
+      templateUrl: 'templates/group.html',
+      controller: 'groupCtrlr',
+
+    })
+
+    .state('home', {
+      url: '/home',
+      templateUrl: 'templates/home.html',
+      controller: 'homeCtrlr',
+
+    })
+
 
     .state('tab.chats', {
       url: '/chats',
@@ -94,6 +108,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   });
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/login');
+  $urlRouterProvider.otherwise('/home');
 
 });

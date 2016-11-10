@@ -6,16 +6,50 @@ angular.module('starter.services', [])
         var promise = deferred.promise;
         $http({
           method: 'GET',
-          url: 'https://api.mongolab.com/api/1/databases/harry/collections/users?q={username:\''+name+'\'}&apiKey=0xCX7-4KL6dGWvAOR5PLzPaC-DtA0KZ4',
+          url: 'https://api.mongolab.com/api/1/databases/harry/collections/users?q={\"username\":\"'+name+'\",\"password\":\"'+pw+'\"}&apiKey=0xCX7-4KL6dGWvAOR5PLzPaC-DtA0KZ4',
           contentType:"application/json"
 
         }).success(function(data){
-          if (name == data[0].username && pw == data[0].password) {
+          alert(data[0].password);
+          if (name == data[0].username&&pw==data[0].password ){
+            alert('match');
             deferred.resolve('Welcome ' + data[0].username + '!');
           } else {
+            alert('mismatch');
             deferred.reject('Wrong credentials.');
           }
 
+        })
+        promise.success = function(fn) {
+          promise.then(fn);
+          return promise;
+        }
+        promise.error = function(fn) {
+          promise.then(null, fn);
+          return promise;
+        }
+        return promise;
+      }
+
+    }})
+  .service('GroupService', function($q, $http) {
+    return {
+      groupUser: function(ggname) {
+        var deferred = $q.defer();
+        var promise = deferred.promise;
+        $http({
+          method: 'GET',
+          url: 'https://api.mongolab.com/api/1/databases/harry/collections/users?q={\"gname\":\"'+ggname+'\"}&apiKey=0xCX7-4KL6dGWvAOR5PLzPaC-DtA0KZ4',
+          contentType:"application/json"
+
+        }).success(function(data){
+          users = [];
+          for(var i=0;i<data.length;i++)
+          {
+            users[i]=data[i].username
+          }
+          //console.log(users);
+            return users;
         })
         promise.success = function(fn) {
           promise.then(fn);
@@ -122,12 +156,12 @@ angular.module('starter.services', [])
 
   .service('RegisterService', function($q, $http) {
     return {
-      RegisterUser: function( username, password,pass,mob,nic) {
+      RegisterUser: function( username, password,pass,mob,nic,gn) {
         var deferred = $q.defer();
         var promise = deferred.promise;
         $http({
           method: 'POST',
-          url: 'https://api.mongolab.com/api/1/databases/harry/collections//users?apiKey=0xCX7-4KL6dGWvAOR5PLzPaC-DtA0KZa4',
+          url: 'https://api.mongolab.com/api/1/databases/harry/collections//users?apiKey=0xCX7-4KL6dGWvAOR5PLzPaC-DtA0KZ4',
           data: JSON.stringify({
 
             username: username,
@@ -135,6 +169,7 @@ angular.module('starter.services', [])
             cpassword:pass,
             mobile:mob,
             nick:nic,
+            gname:gn,
           }),
           contentType:"application/json"
 
