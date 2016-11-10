@@ -3,17 +3,17 @@
     <ion-list id="login-list1">
       <br><br>
       <label class="item item-input" id="login-input1">
-        <span class="input-label" style="color:blue" >Group Name</span><input type="text" placeholder="" id="groupname" ng-model="data.gr">
+        <span class="input-label" style="color:blue" >Group Name</span><input type="text"  ng-model="data1.group">
       </label>
 
       <br><br>
     </ion-list>
       <br><br>
-    <ul class="list" ng-repeat="user in users">
+    <ul class="list" ng-repeat="user in gnamename">
       <li class="item"  >
-     {{user}}
+     {{user.name}}
       </li>
     </ul>
-    <button class="button button-block button-positive" id="create_group" ng-click="group()">Get Group Members</button>
+    <button class="button button-block button-positive" id="create_group" ng-click="getusers()">Get Group Members</button>
   </ion-content>
 </ion-view>

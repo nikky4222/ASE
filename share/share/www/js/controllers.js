@@ -28,15 +28,19 @@ angular.module('starter.controllers', [])
 
 
   .controller('groupCtrlr', function($scope,$http) {
+    $scope.data1={};
     $scope.gnamename=[];
     $scope.getusers=function () {
-      $scope.gname=ggname;
-      var name1=$http.get("https://api.mongolab.com/api/1/databases/harry/collections/users?q={\"gname\":\""+$scope.gname+"\"}&apiKey=0xCX7-4KL6dGWvAOR5PLzPaC-DtA0KZ4")
-      name1.success(data);{
+      var gname=$scope.data1.group;
+      //console.log($scope.data1.group)
+      var name1=$http.get("https://api.mongolab.com/api/1/databases/harry/collections/users?q={\"gname\":\""+gname+"\"}&apiKey=0xCX7-4KL6dGWvAOR5PLzPaC-DtA0KZ4")
+      name1.success(function(data){
+console.log(data.length)
         for(var i=0;i<data.length;i++) {
-          $scope.gnamename[i] = {"name": data[i].id.username}
+          $scope.gnamename[i] = {"name": data[0].username};
         }
-      }
+        console.log($scope.gnamename)
+      });
     }
 
 
